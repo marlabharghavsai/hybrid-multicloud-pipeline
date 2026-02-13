@@ -6,3 +6,4 @@ node_modules
 __pycache__
 localstack_data
 keyfile.json
+terraform_*.zip
