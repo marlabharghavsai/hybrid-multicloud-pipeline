@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  localstack:
+    container_name: localstack_main
+    image: localstack/localstack:latest
+    ports:
+      - "4566:4566"
+    environment:
+      - DEBUG=1
+      - SERVICES=s3,sqs,dynamodb,iam
+      - PERSISTENCE=1
+      - DATA_DIR=/tmp/localstack/data
+    volumes:
+      - "./localstack_data:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    healthcheck:
+      test: ["CMD","awslocal","health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  bridge:
+    build: ./src/bridge
+    depends_on:
+      localstack:
+        condition: service_healthy
+    env_file:
+      - .env
