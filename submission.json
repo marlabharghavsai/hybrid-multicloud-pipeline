@@ -1,0 +1,5 @@
+{
+  "gcpProjectId": "hybrid-cloud-project-487304",
+  "gcpRegion": "us-central1",
+  "testEventFile": "test-event.json"
+}
