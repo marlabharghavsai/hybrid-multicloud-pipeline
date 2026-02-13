@@ -1,0 +1,8 @@
+.env
+*.tfstate
+*.tfstate.backup
+terraform/.terraform
+node_modules
+__pycache__
+localstack_data
+keyfile.json
