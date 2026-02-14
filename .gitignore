@@ -8,3 +8,5 @@ localstack_data
 keyfile.json
 terraform_*.zip
 terraform.tfvars
+.terraform/
+.terraform.lock.hcl
